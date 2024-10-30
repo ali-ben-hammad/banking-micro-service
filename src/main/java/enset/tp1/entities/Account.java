@@ -1,8 +1,6 @@
 package enset.tp1.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,4 +23,7 @@ public class Account {
     private String currency;
     @Enumerated(STRING)
     private AccountType accountType;
+    @ManyToOne
+    private Customer customer;
+
 }
