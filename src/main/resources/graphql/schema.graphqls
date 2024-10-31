@@ -1,6 +1,7 @@
 type Query{
-    accountsList: Account
+    accountsList: [Account]
     accountById (id: String) : Account
+    customersList : [Customer]
 }
 
 type Mutation{
@@ -9,16 +10,24 @@ type Mutation{
     deleteAccount(id: String) : Boolean
 }
 
+type Customer{
+    id: Int,
+    name : String,
+    accounts: [Account]
+}
+
+scalar DateTime
+
 type Account {
     id: String,
-    createdAt: Float,
+    createdAt: DateTime,
     balance: Float,
     currency: String,
-    type: String
+    accountType: String
 }
 
 input AccountDTO{
     balance: Float,
     currency: String,
-    type: String
+    accountType: String
 }
